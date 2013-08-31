@@ -1,10 +1,34 @@
 <!doctype HTML>
 <html>
 <head>
-<script type='text/javascript' src='js/test.js'></script>
-<link href='css/test.css' rel='stylesheet' type='text/css' />
+<script type='text/javascript' src='js/jquery-2.0.3.min.js'></script>
+<script type='text/javascript' src='js/underscore-min.js'></script>
+<script type='text/javascript' src='js/backbone-min.js'></script>
+<script type='text/javascript' src='js/tictacr.js'></script>
+<script type='text/javascript' src='js/gameView.js'></script>
+
+<script type='text/javascript'>
+(function() {
+  'use strict';
+
+  window.onload = function() {
+    var gameView,
+    gameBoard;
+    gameBoard = new window.TicTacr.Models.GameBoardModel;
+    gameView = new window.TicTacr.Views.GameView({
+      model: gameBoard,
+      el: $('#gameboard')
+    });
+    gameView.render();
+  };
+}())
+
+</script>
+<link href='css/game.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
-<h1>Hello Html</h1>
+<h1>TicTacr</h1>
+<div id='gameboard'>
+</div>
 </body>
 </html>
