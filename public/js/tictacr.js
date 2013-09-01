@@ -3,7 +3,8 @@
 
   var TicTacr = {
     Models: {},
-    Views: {}
+    Views: {},
+    Collections: {},
   };
 
   window.TicTacr = TicTacr;

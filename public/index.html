@@ -5,6 +5,8 @@
 <script type='text/javascript' src='js/underscore-min.js'></script>
 <script type='text/javascript' src='js/backbone-min.js'></script>
 <script type='text/javascript' src='js/tictacr.js'></script>
+<script type='text/javascript' src='js/collections/gameBoard.js'></script>
+<script type='text/javascript' src='js/models/gameBoard.js'></script>
 <script type='text/javascript' src='js/gameView.js'></script>
 
 <script type='text/javascript'>
@@ -14,9 +16,9 @@
   window.onload = function() {
     var gameView,
     gameBoard;
-    gameBoard = new window.TicTacr.Models.GameBoardModel;
+    gameBoard = new window.TicTacr.Collections.GameBoard;
     gameView = new window.TicTacr.Views.GameView({
-      model: gameBoard,
+      collection: gameBoard,
       el: $('#gameboard')
     });
     gameView.render();
