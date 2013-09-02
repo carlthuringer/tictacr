@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  window.TicTacr.Collections.GameBoard = Backbone.Collection.extend({
+  window.TicTacr.Collections.GameRounds = Backbone.Collection.extend({
     initialize: function() {
       this.currentBoard = this.newBoard();
       this.add(this.currentBoard);

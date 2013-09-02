@@ -15,10 +15,10 @@
 
   window.onload = function() {
     var gameView,
-    gameBoard;
-    gameBoard = new window.TicTacr.Collections.GameBoard;
+    gameRounds;
+    gameRounds = new window.TicTacr.Collections.GameRounds;
     gameView = new window.TicTacr.Views.GameView({
-      collection: gameBoard,
+      collection: gameRounds,
       el: $('#gameboard')
     });
     gameView.render();
