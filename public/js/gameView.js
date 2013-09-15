@@ -2,38 +2,33 @@
   'use strict';
   window.TicTacr.Views.GameView = Backbone.View.extend({
     events: {
-      'click .cell': 'handleCellClicked'
+      'click canvas': 'handleCellClicked'
+    },
+
+    boardRenderer: function() {
+      return window.TicTacr.Lib.BoardRenderer;
+    },
+
+    canvas: function() {
+      return this.$('canvas');
     },
 
     initialize: function() {
+      var _this = this;
       _.bindAll(this, 'render');
-      this.collection.on('add', this.render);
+      this.collection.on('add', function() { _this.render(); });
     },
 
     render: function() {
-      console.log('render');
-      this.el.innerHTML = this.renderBoard();
+      this.boardRenderer().render(this.collection, this.canvas());
     },
-
-    renderBoard: function() {
-      var finalHTML = '';
-
-      for(var i = 0; i < 9; i++) {
-        finalHTML += _.template(this.cellTemplate, {
-          index: i,
-          mark: this.collection.getCurrentMark(i),
-        });
-      }
-      return finalHTML;
-    },
-
-    cellTemplate: "<div class='cell' data-index='<%= index %>'><%= mark %></div>",
 
     handleCellClicked: function(event) {
       var target = event.currentTarget,
       cellIndex = target.dataset.index;
 
-      this.collection.markCell(cellIndex, 'X');
+      console.log(event.clientX, event.clientY);
+      //this.collection.markCell(cellIndex, 'X');
     }
   });
 }())
